@@ -1,0 +1,167 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: 2015-04-10 16:10+0100\n"
+"PO-Revision-Date: 2015-04-10 16:19+0100\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: ca\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;__ngettext:1,2;_n:1,2;__ngettext_noop:1,2;"
+"_n_noop:1,2;_c,_nc:4c,1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2\n"
+"X-Poedit-Basepath: .\n"
+"X-Textdomain-Support: yes\n"
+"X-Generator: Poedit 1.7.5\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: book-custom-post-type.php:36
+msgid "Books"
+msgstr "Llibres"
+
+#: book-custom-post-type.php:37
+msgid "Book"
+msgstr "Llibre"
+
+#: book-custom-post-type.php:38 book-custom-post-type.php:39
+msgid "Add New Book"
+msgstr "Añadir Nou Llibre"
+
+#: book-custom-post-type.php:40
+msgid "Edit Book"
+msgstr "Editar Llibre"
+
+#: book-custom-post-type.php:41
+msgid "New Book"
+msgstr "Nou Llibre"
+
+#: book-custom-post-type.php:42
+msgid "View Book"
+msgstr "Veure Llibre"
+
+#: book-custom-post-type.php:43
+msgid "Search Books"
+msgstr "Buscar Llibres"
+
+#: book-custom-post-type.php:44
+msgid "No Books found"
+msgstr "No s'ha trobat res"
+
+#: book-custom-post-type.php:45
+msgid "No Books found in Trash"
+msgstr "No s'ha trobat res a la paperera"
+
+#: book-custom-post-type.php:66
+msgid "Types"
+msgstr "Tipus"
+
+#: book-custom-post-type.php:67
+msgid "Type"
+msgstr "Tipus"
+
+#: book-custom-post-type.php:68
+msgid "Add New Type"
+msgstr "Afegir Nou Tipus"
+
+#: book-custom-post-type.php:69
+msgid "Edit Type"
+msgstr "Editar Tipus"
+
+#: book-custom-post-type.php:70
+msgid "New Type"
+msgstr "Nou Tipus"
+
+#: book-custom-post-type.php:71
+msgid "Search Types"
+msgstr "Buscar Tipus"
+
+#: book-custom-post-type.php:72
+msgid "All Types"
+msgstr "Tots els Tipus"
+
+#: book-custom-post-type.php:73
+msgid "Popular Types"
+msgstr "Tipus Populars"
+
+#: book-custom-post-type.php:89 book-custom-post-type.php:162
+msgid "Artists"
+msgstr "Artistes"
+
+#: book-custom-post-type.php:90
+msgid "Artist"
+msgstr "Artista"
+
+#: book-custom-post-type.php:91
+msgid "Add New Artist"
+msgstr "Afegir Nou Artista"
+
+#: book-custom-post-type.php:92
+msgid "Edit Artist"
+msgstr "Editar Artista"
+
+#: book-custom-post-type.php:93
+msgid "New Artist"
+msgstr "Nou Artista"
+
+#: book-custom-post-type.php:94
+msgid "Search Artists"
+msgstr "Buscar Artistes"
+
+#: book-custom-post-type.php:95
+msgid "All Artists"
+msgstr "Tots els Artistes"
+
+#: book-custom-post-type.php:96
+msgid "Popular Artists"
+msgstr "Artistes Populars"
+
+#: book-custom-post-type.php:112 book-custom-post-type.php:163
+msgid "Publishers"
+msgstr "Editorials"
+
+#: book-custom-post-type.php:113
+msgid "Publisher"
+msgstr "Editorial"
+
+#: book-custom-post-type.php:114
+msgid "Add New Publisher"
+msgstr "Afegir Nova Editorial"
+
+#: book-custom-post-type.php:115
+msgid "Edit Publisher"
+msgstr "Editar Editorial"
+
+#: book-custom-post-type.php:116
+msgid "New Publisher"
+msgstr "Nova Editorial"
+
+#: book-custom-post-type.php:117
+msgid "Search Publishers"
+msgstr "Buscar Editorials"
+
+#: book-custom-post-type.php:118
+msgid "All Publishers"
+msgstr "Totes les Editorials"
+
+#: book-custom-post-type.php:119
+msgid "Popular Publishers"
+msgstr "Editorials Populars"
+
+#: book-custom-post-type.php:144
+msgid "Books Feed"
+msgstr "Feed dels Llibres"
+
+#: book-custom-post-type.php:161
+msgid "Cover"
+msgstr "Portada"
+
+#: book-custom-post-type.php:164
+msgid "Categories"
+msgstr "Categories"
+
+#: book-custom-post-type.php:196
+msgid "None"
+msgstr "Cap"

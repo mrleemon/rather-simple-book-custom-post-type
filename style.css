@@ -1,0 +1,33 @@
+.books {
+
+}
+
+.books .book {
+	position: relative;
+    display: -moz-inline-box;
+    display: inline-block;
+    vertical-align: top;
+    width: 250px;
+    margin: 0 10px 0 0;
+}
+
+.bookindex .letter {
+    display: -moz-inline-box;
+    display: inline-block;
+    vertical-align: top;
+    width: 250px;
+    margin-right: 15px;
+}
+
+.bookindex .letter h2 {
+    border-bottom: 1px solid #000;
+}
+
+.bookindex .letter ul {
+    list-style-type: none;
+    margin-left: 0;
+}
+
+.bookindex .letter a {
+    font-weight: normal;
+}
