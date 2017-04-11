@@ -18,6 +18,14 @@ This plugin is experimental and is provided with no support or warranty.
 1. Upload the extracted plugin folder and contained files to your /wp-content/plugins/ directory
 2. Activate the plugin through the "Plugins" menu in WordPress
 
+== Frequently Asked Questions ==
+= Are there any shortcodes? =
+Yes, you can use the following:
+
+* [bookindex group_by="books"] to display books grouped alphabetically
+* [bookindex group_by="authors"] to display books grouped by author
+* [bookindex group_by="publishers"] to display books grouped by publisher
+
 == Copyright ==
 
 Book Custom Post Type is distributed under the terms of the GNU GPL
