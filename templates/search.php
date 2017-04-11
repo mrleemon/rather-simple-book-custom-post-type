@@ -24,14 +24,14 @@ get_header(); ?>
 					<header class="entry-header">
 						<?php
 							if ( 'book' == get_post_type() ) :
-								$artists = wp_get_object_terms( get_the_ID(), 'book-artist', array('fields' => 'names'));
-								if (!empty($artists)) { 
-									$artists = implode(', ', $artists) . bcpt_separator();
+								$authors = wp_get_object_terms( get_the_ID(), 'book_author', array( 'fields' => 'names' ) );
+								if ( !empty( $authors ) ) { 
+									$authors = implode( ', ', $authors ) . apply_filters( 'separator', ': ' );
 								} else {
-									$artists = '';
+									$authors = '';
 								}
 						?>
-							<h1 class="entry-title"><a href="<?php the_permalink(); ?>" rel="bookmark"><?php echo $artists; the_title(); ?></a></h1>
+							<h1 class="entry-title"><a href="<?php the_permalink(); ?>" rel="bookmark"><?php echo $authors; the_title(); ?></a></h1>
 						<?php else : ?>
 							<h1 class="entry-title"><a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_title(); ?></a></h1>
 						<?php endif; ?>

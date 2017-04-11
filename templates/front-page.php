@@ -15,9 +15,9 @@ Template Name: Front Page Template
 				'post_type' => 'book'
 			);
 											
-			$paged = (get_query_var('page')) ? get_query_var('page') : 1;
+			$paged = ( get_query_var( 'page' ) ) ? get_query_var( 'page' ) : 1;
 			$wp_query = new WP_Query( array_merge( $args, 
-										array('paged' => $paged) ) );
+										array( 'paged' => $paged ) ) );
 			
 		?>
 
@@ -30,14 +30,14 @@ Template Name: Front Page Template
 
 					<header class="entry-header">
 						<?php
-							$artists = wp_get_object_terms( get_the_ID(), 'book-artist', array('fields' => 'names'));
-							if (!empty($artists)) { 
-								$artists = implode(', ', $artists) . bcpt_separator();
+							$authors = wp_get_object_terms( get_the_ID(), 'book_author', array( 'fields' => 'names' ) );
+							if ( !empty( $authors ) ) { 
+								$authors = implode( ', ', $authors ) . apply_filters( 'separator', ': ');
 							} else {
-								$artists = '';
+								$authors = '';
 							}
 						?>
-						<h1 class="entry-title"><a href="<?php the_permalink(); ?>" rel="bookmark"><?php echo $artists; the_title(); ?></a></h1>
+						<h1 class="entry-title"><a href="<?php the_permalink(); ?>" rel="bookmark"><?php echo $authors; the_title(); ?></a></h1>
 					</header><!-- .entry-header -->
 
 					<div class="entry-content">

@@ -16,9 +16,9 @@
 				<?php while ( have_posts() ) : the_post(); ?>
 
 					<?php
-						$artists = wp_get_object_terms( $post->ID, 'book-artist', array('fields' => 'names'));
-						if (!empty($artists)) { 
-							$artists = implode(', ', $artists) . bcpt_separator();
+						$authors = wp_get_object_terms( $post->ID, 'book_author', array( 'fields' => 'names' ) );
+						if ( !empty( $authors ) ) { 
+							$authors = implode( ', ', $authors) . apply_filters( 'separator', ': ');
 						}
 					?>
 
@@ -26,21 +26,22 @@
 
 					<a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>" >
 					<?php 
-						bcpt_post_thumbnail('thumbnail');
+						//bcpt_post_thumbnail( 'thumbnail' );
+						do_action( 'post_thumbnail', 'thumbnail' );
 					?>
 					</a>
 					<p>
-					<a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>" ><?php the_title($artists); ?></a>
+					<a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>" ><?php the_title( $authors ); ?></a>
 					</p>
         
 					</div><!-- #post -->
 
 				<?php endwhile; ?>
-			
+
 			</div><!-- .books -->
 
 			<?php the_posts_pagination(); ?>
-
+			
 		<?php else : ?>
 
 			<article id="post-0" class="post no-results not-found">

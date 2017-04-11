@@ -20,14 +20,14 @@ get_header(); ?>
 				<header class="entry-header">
 	
 					<?php
-						$artists = wp_get_object_terms( get_the_ID(), 'book-artist', array('fields' => 'names'));
-						if (!empty($artists)) { 
-							$artists = implode(', ', $artists) . bcpt_separator();
+						$authors = wp_get_object_terms( get_the_ID(), 'book_author', array( 'fields' => 'names' ) );
+						if ( !empty( $authors ) ) { 
+							$authors = implode( ', ', $authors) . apply_filters( 'separator', ': ');
 						} else {
-							$artists = '';
+							$authors = '';
 						}
 					?>
-					<h1 class="entry-title"><?php echo $artists; the_title(); ?></h1>
+					<h1 class="entry-title"><?php echo $authors; the_title(); ?></h1>
 			
 				</header><!-- .entry-header -->
 
