@@ -134,8 +134,7 @@ class Book_Custom_Post_Type {
 			'menu_position' => 5,
 			'menu_icon' => 'dashicons-book',
 			'supports' => array( 'title', 'editor', 'comments', 'thumbnail' ), 
-			'rewrite' => true, 
-			'taxonomies' => array( 'category' ),
+			'rewrite' => true,
 			'has_archive' => 'books'
 		);
 
@@ -271,11 +270,10 @@ class Book_Custom_Post_Type {
 			case 'thumbnail':
 				$width = (int) 100;
 				$height = (int) 100;
-				$thumbnail_id = get_post_meta( $post->ID, '_thumbnail_id', true );
 				// image from gallery
 				$attachments = get_children( array( 'post_parent' => $post->ID, 'post_type' => 'attachment', 'post_mime_type' => 'image' ) );
-				if ( $thumbnail_id ) {
-					$thumb = wp_get_attachment_image( $thumbnail_id, array( $width, $height ), true );
+				if ( has_post_thumbnail( $post->ID ) ) {
+					$thumb = get_the_post_thumbnail( $post->ID, array( $width, $height ) );
 				} elseif ( $attachments ) {
 					foreach ( $attachments as $attachment_id => $attachment ) {
 						$thumb = wp_get_attachment_image( $attachment_id, array( $width, $height ), true );
@@ -308,7 +306,7 @@ class Book_Custom_Post_Type {
 	 ** args: string 
 	 ** returns: string
 	 */
-	function display_shortcode( $atts) {
+	function display_shortcode( $atts ) {
 
 		extract(shortcode_atts(array(
 			'group_by' => 'books'
@@ -348,7 +346,7 @@ class Book_Custom_Post_Type {
 		global $_wp_additional_image_sizes;
 
 		if ( has_post_thumbnail() ) {
-			$image_attributes = wp_get_attachment_image_src(get_post_thumbnail_id(get_the_ID() ), $size);
+			$image_attributes = wp_get_attachment_image_src( get_post_thumbnail_id( get_the_ID() ), $size );
 			$html = '<a href="' . get_permalink() . '">';                
 			$html .= '<img src="' . $image_attributes[0] . '" _width="' . ceil( $image_attributes[1] / 2 ) . '" _height="' . ceil( $image_attributes[2] / 2 ) . '" alt="' . get_the_title() . '" />';
 			$html .= '</a>';
@@ -359,10 +357,10 @@ class Book_Custom_Post_Type {
 				'post_status' => null,
 				'post_parent' => get_the_ID()
 			);
-			$attachments = get_posts( $args);
+			$attachments = get_posts( $args );
 			if ( $attachments) {
-				  foreach ( $attachments as $attachment) {
-					$image_attributes = wp_get_attachment_image_src( $attachment->ID, $size);
+				  foreach ( $attachments as $attachment ) {
+					$image_attributes = wp_get_attachment_image_src( $attachment->ID, $size );
 					$html = '<a href="' . get_permalink() . '">';                
 					$html = '<img src="' . $image_attributes[0] . '" _width="' . ceil( $image_attributes[1] / 2 ) . '" alt="" />';
 					$html .= '</a>';
@@ -376,7 +374,7 @@ class Book_Custom_Post_Type {
 					$height = get_option( $size. '_size_h' );
 				} 
 				$html = '<a href="' . get_permalink() . '">';                
-				$html .= '<img src="' . plugins_url( 'assets/images/placeholder.png', __FILE__ ) . '" _width="' . ceil( $width / 2 ) . 
+				$html .= '<img src="' . plugins_url( 'assets/images/nothumbnail.png', __FILE__ ) . '" _width="' . ceil( $width / 2 ) . 
 						 '" _height="' . ceil( $height / 2 ) . '" alt="' . get_the_title() . '" />';
 				$html .= '</a>';
 			}
@@ -482,12 +480,13 @@ class Book_Custom_Post_Type {
 	function get_template_part( $slug, $name = null ) {
 		$templates = array();
 		$name = (string) $name;
-		if ( '' !== $name )
+		if ( '' !== $name ) {
 			$templates[] = "{$slug}-{$name}.php";
+		}
 		
 		$templates[] = "{$slug}.php";
 		
-		$this->locate_template( $templates, true, false);
+		$this->locate_template( $templates, true, false );
 	}
 
 
