@@ -1,0 +1,215 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Book Custom Post Type\n"
+"POT-Creation-Date: 2017-08-18 13:17+0200\n"
+"PO-Revision-Date: 2017-08-18 13:19+0200\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: ca\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.8.12\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-WPHeader: book-custom-post-type.php\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
+"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.js\n"
+
+#: book-custom-post-type.php:116
+msgid "Books"
+msgstr "Llibres"
+
+#: book-custom-post-type.php:117
+msgid "Book"
+msgstr "Llibre"
+
+#: book-custom-post-type.php:118 book-custom-post-type.php:119
+msgid "Add New Book"
+msgstr "Afegir nou llibre"
+
+#: book-custom-post-type.php:120
+msgid "Edit Book"
+msgstr "Editar llibre"
+
+#: book-custom-post-type.php:121
+msgid "New Book"
+msgstr "Nou llibre"
+
+#: book-custom-post-type.php:122
+msgid "View Book"
+msgstr "Veure llibre"
+
+#: book-custom-post-type.php:123
+msgid "Search Books"
+msgstr "Buscar llibres"
+
+#: book-custom-post-type.php:124
+msgid "No Books found"
+msgstr "No s'ha trobat cap llibre"
+
+#: book-custom-post-type.php:125
+msgid "No Books found in Trash"
+msgstr "No s'ha trobat cap llibre"
+
+#: book-custom-post-type.php:145
+msgid "Types"
+msgstr "Tipus"
+
+#: book-custom-post-type.php:146
+msgid "Type"
+msgstr "Tipus"
+
+#: book-custom-post-type.php:147
+msgid "Add New Type"
+msgstr "Afegir nou tipus"
+
+#: book-custom-post-type.php:148
+msgid "Edit Type"
+msgstr "Editar tipus"
+
+#: book-custom-post-type.php:149
+msgid "New Type"
+msgstr "Nou tipus"
+
+#: book-custom-post-type.php:150
+msgid "Search Types"
+msgstr "Buscar tipus"
+
+#: book-custom-post-type.php:151
+msgid "All Types"
+msgstr "Tots els tipus"
+
+#: book-custom-post-type.php:152
+msgid "Popular Types"
+msgstr "Tipus populars"
+
+#: book-custom-post-type.php:169
+msgid "Authors"
+msgstr "Autors"
+
+#: book-custom-post-type.php:170
+msgid "Author"
+msgstr "Autor"
+
+#: book-custom-post-type.php:171
+msgid "Add New Author"
+msgstr "Afegir nou autor"
+
+#: book-custom-post-type.php:172
+msgid "Edit Author"
+msgstr "Editar autor"
+
+#: book-custom-post-type.php:173
+msgid "New Author"
+msgstr "Nou autor"
+
+#: book-custom-post-type.php:174
+msgid "Search Authors"
+msgstr "Buscar autors"
+
+#: book-custom-post-type.php:175
+msgid "All Authors"
+msgstr "Tots els autors"
+
+#: book-custom-post-type.php:176
+msgid "Popular Authors"
+msgstr "Autors populars"
+
+#: book-custom-post-type.php:193
+msgid "Publishers"
+msgstr "Editorials"
+
+#: book-custom-post-type.php:194
+msgid "Publisher"
+msgstr "Editorial"
+
+#: book-custom-post-type.php:195
+msgid "Add New Publisher"
+msgstr "Afegir nova editorial"
+
+#: book-custom-post-type.php:196
+msgid "Edit Publisher"
+msgstr "Editar editorial"
+
+#: book-custom-post-type.php:197
+msgid "New Publisher"
+msgstr "Nova editorial"
+
+#: book-custom-post-type.php:198
+msgid "Search Publishers"
+msgstr "Buscar editorials"
+
+#: book-custom-post-type.php:199
+msgid "All Publishers"
+msgstr "Totes les editorials"
+
+#: book-custom-post-type.php:200
+msgid "Popular Publishers"
+msgstr "Editorials populars"
+
+#: book-custom-post-type.php:232
+msgid "Books Feed"
+msgstr "Feed dels llibres"
+
+#: book-custom-post-type.php:247
+msgid "Cover"
+msgstr "Portada"
+
+#: book-custom-post-type.php:278
+msgid "None"
+msgstr "Cap"
+
+#: templates/archive-book.php:49 templates/front-page.php:63
+#: templates/search.php:59 templates/taxonomy-book_author.php:55
+#: templates/taxonomy-book_publisher.php:55 templates/taxonomy-book_type.php:55
+msgid "Nothing Found"
+msgstr "No s'ha trobat res"
+
+#: templates/archive-book.php:54 templates/front-page.php:68
+#: templates/search.php:64 templates/taxonomy-book_author.php:60
+#: templates/taxonomy-book_publisher.php:60 templates/taxonomy-book_type.php:60
+msgid ""
+"It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps "
+"searching can help."
+msgstr ""
+"Sembla que no hem pogut trobar el que busques. El cercador et pot ser "
+"d'ajuda."
+
+#: templates/front-page.php:44 templates/search.php:40
+msgid "Continue reading <span class=\"meta-nav\">&rarr;</span>"
+msgstr "Continuar llegint <span class=\"meta-nav\">&rarr;</span>"
+
+#: templates/front-page.php:47 templates/search.php:43
+#: templates/single-book.php:36
+msgid "Pages:"
+msgstr "Pàgines:"
+
+#: templates/search.php:15
+#, php-format
+msgid "Search Results for: %s"
+msgstr "Resultats de la cerca: %s"
+
+#. Plugin Name of the plugin/theme
+msgid "Book Custom Post Type"
+msgstr ""
+
+#. Plugin URI of the plugin/theme
+msgid "http://wordpress.org/plugins/book-custom-post-type/"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid "A book custom post type"
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "Oscar Ciutat"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "http://oscarciutat.com/code"
+msgstr ""

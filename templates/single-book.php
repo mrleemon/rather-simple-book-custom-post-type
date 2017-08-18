@@ -1,9 +1,7 @@
 <?php
-
 /**
- * The Template for displaying all single books.
+ * The template for displaying all single books.
  *
- * @package occ
  */
 
 get_header(); ?>

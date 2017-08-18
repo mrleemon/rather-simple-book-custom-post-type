@@ -1,4 +1,10 @@
-<?php get_header(); ?>
+<?php
+/**
+ * The template for displaying book author taxonomy pages.
+ *
+ */
+
+get_header(); ?>
 
 	<section id="primary" class="content-area">
 		<div id="content" class="site-content" role="main">

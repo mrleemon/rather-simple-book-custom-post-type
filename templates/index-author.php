@@ -1,3 +1,10 @@
+<?php
+/**
+ * The template for displaying the index of book authors.
+ *
+ */
+?>
+
 <div class="bookindex" id="bookindex-authors">
     
 <?php	

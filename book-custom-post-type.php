@@ -1,12 +1,12 @@
 <?php
 /*
   Plugin Name: Book Custom Post Type
-  Plugin URI: http://wordpress.org/plugins/add-external-media/
+  Plugin URI: http://wordpress.org/plugins/book-custom-post-type/
   Description: A book custom post type
   Version: 1.0
   Author: Oscar Ciutat
   Author URI: http://oscarciutat.com/code
-  Text Domain: add-external-media
+  Text Domain: book-custom-post-type
   License: GPLv2 or later
 
   This program is free software; you can redistribute it and/or modify
@@ -64,10 +64,10 @@ class Book_Custom_Post_Type {
 		add_action( 'init', array( $this, 'load_language' ) );
 		add_action( 'init', array( $this, 'register_custom_type' ) );
 		add_action( 'wp_head', array( $this, 'head' ) );
-		add_action( 'manage_posts_custom_column', array( $this, 'custom_columns' ) );
+		add_filter( 'manage_book_posts_columns', array( $this, 'book_posts_columns' ) );
+		add_action( 'manage_book_posts_custom_column', array( $this, 'book_posts_custom_column' ) );
 		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
 		add_action( 'post_thumbnail', array( $this, 'post_thumbnail' ) );
-		add_filter( 'manage_edit-book_columns', array( $this, 'edit_columns' ) );
 		add_filter( 'template_include', array( $this, 'template_include' ) );
 		add_filter( 'pre_get_posts', array( $this, 'pre_get_posts' ) );
 		add_filter( 'redirect_canonical', array( $this, 'disable_redirect_canonical' ) );
@@ -84,7 +84,6 @@ class Book_Custom_Post_Type {
 	 */
 	public function __construct() {}
 
-	
 	
  	/**
 	 * Includes required core files used in admin and on the frontend.
@@ -104,27 +103,26 @@ class Book_Custom_Post_Type {
 	 *
 	 */
 	function load_language() {
-		load_plugin_textdomain( 'bcpt', '', dirname(plugin_basename( __FILE__ ) ) . '/languages/' );
+		load_plugin_textdomain( 'book-custom-post-type', '', dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
 	}
 
 	
 	/*
 	* register_custom_type  
 	*/
-  
 	function register_custom_type() {
 
 		$labels = array(
-			'name' => __( 'Books', 'bcpt' ),
-			'singular_name' => __( 'Book', 'bcpt' ),
-			'add_new' => __( 'Add New Book', 'bcpt' ),
-			'add_new_item' => __( 'Add New Book', 'bcpt' ),
-			'edit_item' => __( 'Edit Book', 'bcpt' ),
-			'new_item' => __( 'New Book', 'bcpt' ),
-			'view_item' => __( 'View Book', 'bcpt' ),
-			'search_items' => __( 'Search Books', 'bcpt' ),
-			'not_found' => __( 'No Books found', 'bcpt' ),
-			'not_found_in_trash' => __( 'No Books found in Trash', 'bcpt' )
+			'name' => __( 'Books', 'book-custom-post-type' ),
+			'singular_name' => __( 'Book', 'book-custom-post-type' ),
+			'add_new' => __( 'Add New Book', 'book-custom-post-type' ),
+			'add_new_item' => __( 'Add New Book', 'book-custom-post-type' ),
+			'edit_item' => __( 'Edit Book', 'book-custom-post-type' ),
+			'new_item' => __( 'New Book', 'book-custom-post-type' ),
+			'view_item' => __( 'View Book', 'book-custom-post-type' ),
+			'search_items' => __( 'Search Books', 'book-custom-post-type' ),
+			'not_found' => __( 'No Books found', 'book-custom-post-type' ),
+			'not_found_in_trash' => __( 'No Books found in Trash', 'book-custom-post-type' )
 		);
       
 		$args = array(
@@ -138,76 +136,79 @@ class Book_Custom_Post_Type {
 			'has_archive' => 'books'
 		);
 
-		register_post_type( 'book', $args);
+		register_post_type( 'book', $args );
 
 
 		// Types
 
 		$labels = array(
-			'name' => __( 'Types', 'bcpt' ),
-			'singular_name' => __( 'Type', 'bcpt' ),
-			'add_new_item' => __( 'Add New Type', 'bcpt' ),
-			'edit_item' => __( 'Edit Type', 'bcpt' ),
-			'new_item_name' => __( 'New Type', 'bcpt' ),
-			'search_items' => __( 'Search Types', 'bcpt' ),
-			'all_items' => __( 'All Types', 'bcpt' ),
-			'popular_items' => __( 'Popular Types', 'bcpt' )
+			'name' => __( 'Types', 'book-custom-post-type' ),
+			'singular_name' => __( 'Type', 'book-custom-post-type' ),
+			'add_new_item' => __( 'Add New Type', 'book-custom-post-type' ),
+			'edit_item' => __( 'Edit Type', 'book-custom-post-type' ),
+			'new_item_name' => __( 'New Type', 'book-custom-post-type' ),
+			'search_items' => __( 'Search Types', 'book-custom-post-type' ),
+			'all_items' => __( 'All Types', 'book-custom-post-type' ),
+			'popular_items' => __( 'Popular Types', 'book-custom-post-type' )
 		);
 		  
 		$args = array(
 			'show_ui' => true,
 			'public' => true,
 			'labels' => $labels,
-			'hierarchical' => true
+			'hierarchical' => true,
+			'show_admin_column' => true
 		);    
 
-		register_taxonomy( 'book_type', 'book', $args);  
+		register_taxonomy( 'book_type', 'book', $args );
 
 
 		// Authors
 
 		$labels = array(
-			'name' => __( 'Authors', 'bcpt' ),
-			'singular_name' => __( 'Author', 'bcpt' ),
-			'add_new_item' => __( 'Add New Author', 'bcpt' ),
-			'edit_item' => __( 'Edit Author', 'bcpt' ),
-			'new_item_name' => __( 'New Author', 'bcpt' ),
-			'search_items' => __( 'Search Authors', 'bcpt' ),
-			'all_items' => __( 'All Authors', 'bcpt' ),
-			'popular_items' => __( 'Popular Authors', 'bcpt' )
+			'name' => __( 'Authors', 'book-custom-post-type' ),
+			'singular_name' => __( 'Author', 'book-custom-post-type' ),
+			'add_new_item' => __( 'Add New Author', 'book-custom-post-type' ),
+			'edit_item' => __( 'Edit Author', 'book-custom-post-type' ),
+			'new_item_name' => __( 'New Author', 'book-custom-post-type' ),
+			'search_items' => __( 'Search Authors', 'book-custom-post-type' ),
+			'all_items' => __( 'All Authors', 'book-custom-post-type' ),
+			'popular_items' => __( 'Popular Authors', 'book-custom-post-type' )
 		);
 		  
 		$args = array(
 			'show_ui' => true,
 			'public' => true,
 			'labels' => $labels,
-			'hierarchical' => true
+			'hierarchical' => true,
+			'show_admin_column' => true
 		);    
 
-		register_taxonomy( 'book_author', 'book', $args);
+		register_taxonomy( 'book_author', 'book', $args );
 
 
 		// Publishers
 
 		$labels = array(
-			'name' => __( 'Publishers', 'bcpt' ),
-			'singular_name' => __( 'Publisher', 'bcpt' ),
-			'add_new_item' => __( 'Add New Publisher', 'bcpt' ),
-			'edit_item' => __( 'Edit Publisher', 'bcpt' ),
-			'new_item_name' => __( 'New Publisher', 'bcpt' ),
-			'search_items' => __( 'Search Publishers', 'bcpt' ),
-			'all_items' => __( 'All Publishers', 'bcpt' ),
-			'popular_items' => __( 'Popular Publishers', 'bcpt' )
+			'name' => __( 'Publishers', 'book-custom-post-type' ),
+			'singular_name' => __( 'Publisher', 'book-custom-post-type' ),
+			'add_new_item' => __( 'Add New Publisher', 'book-custom-post-type' ),
+			'edit_item' => __( 'Edit Publisher', 'book-custom-post-type' ),
+			'new_item_name' => __( 'New Publisher', 'book-custom-post-type' ),
+			'search_items' => __( 'Search Publishers', 'book-custom-post-type' ),
+			'all_items' => __( 'All Publishers', 'book-custom-post-type' ),
+			'popular_items' => __( 'Popular Publishers', 'book-custom-post-type' )
 		);
 		  
 		$args = array(
 			'show_ui' => true,
 			'public' => true,
 			'labels' => $labels,
-			'hierarchical' => true
+			'hierarchical' => true,
+			'show_admin_column' => true
 		);    
 	  
-		register_taxonomy( 'book_publisher', 'book', $args);
+		register_taxonomy( 'book_publisher', 'book', $args );
 
 	} 
 
@@ -215,43 +216,35 @@ class Book_Custom_Post_Type {
 	/*
 	 * enqueue_scripts 
 	 */
-	  
 	function enqueue_scripts() {
 		wp_enqueue_style( 'bcpt-style', plugins_url( '/style.css', __FILE__ ) );
 	}
 
 
-	/* Function: head
-	 ** args:  
-	 ** returns:
+	/* 
+	 * head
 	 */
-
 	function head() {
 		$content = '<link rel="alternate" type="application/rss+xml" href="';
 		$content .= get_post_type_archive_feed_link( 'book' );
 		$content .= '" title="';
 		$content .= esc_attr( get_bloginfo( 'name' ) );
-		$content .= ' &raquo; ' . __( 'Books Feed', 'bcpt' );
+		$content .= ' &raquo; ' . __( 'Books Feed', 'book-custom-post-type' );
 		$content .= '" />';
 		$content .= "\n";
 		echo $content;
 	}
 
 
-	/* Function: edit_columns
-	 ** this function adds new columns to the admin book listing
-	 ** args:  
-	 ** returns:
+	/*
+	 * book_posts_columns
 	 */
-	function edit_columns( $columns ) {
+	function book_posts_columns( $columns ) {
 		$new = array();
 		foreach( $columns as $key => $value ) {
-			if ( $key=='date' ) {
-				// Put the columns before the Date column
-				$new['thumbnail'] = __( 'Cover', 'bcpt' );
-				$new['authors'] = __( 'Authors', 'bcpt' );
-				$new['publishers'] = __( 'Publishers', 'bcpt' );
-				$new['categories'] = __( 'Categories', 'bcpt' );
+			if ( $key == 'title' ) {
+				// Put the columns before the Title column
+				$new['thumbnail'] = __( 'Cover', 'book-custom-post-type' );
 			}
 			$new[$key] = $value;
 		}
@@ -259,58 +252,44 @@ class Book_Custom_Post_Type {
 	}
 
 
-	/* Function: custom_columns
-	 ** this function adds new columns to the admin book listing
-	 ** args:  
-	 ** returns:
+	/*
+	 * book_posts_custom_column
 	 */
-	function custom_columns( $column ) {
+	function book_posts_custom_column( $column ) {
 		global $post;
 		switch ( $column ) {
 			case 'thumbnail':
-				$width = (int) 100;
-				$height = (int) 100;
-				// image from gallery
-				$attachments = get_children( array( 'post_parent' => $post->ID, 'post_type' => 'attachment', 'post_mime_type' => 'image' ) );
+				$args = array(
+					'post_parent' => $post->ID,
+					'post_type' => 'attachment',
+					'post_mime_type' => 'image'
+				);
+				$attachments = get_children( $args );
 				if ( has_post_thumbnail( $post->ID ) ) {
-					$thumb = get_the_post_thumbnail( $post->ID, array( $width, $height ) );
+					$thumb = get_the_post_thumbnail( $post->ID, array( 100, 100 ) );
 				} elseif ( $attachments ) {
 					foreach ( $attachments as $attachment_id => $attachment ) {
-						$thumb = wp_get_attachment_image( $attachment_id, array( $width, $height ), true );
+						$thumb = wp_get_attachment_image( $attachment_id, array( 100, 100 ), true );
 					}
 				}
 				if ( isset( $thumb ) && $thumb ) {
 					echo $thumb;
 				} else {
-					echo __( 'None', 'bcpt' );
+					echo __( 'None', 'book-custom-post-type' );
 				}
 				break;	
-			case 'authors':
-				echo get_the_term_list( $post->ID, 'book_author', '', ', ', '' );
-				break;
-			case 'publishers':
-				echo get_the_term_list( $post->ID, 'book_publisher', '', ', ', '' );
-				break;
-			case 'categories':
-				echo get_the_term_list( $post->ID, 'category', '', ', ', '' );
-				break;
-			case 'date':
-				the_date();
-				break;
 		}
 	}
 
 
-	/* Function: display_shortcode
-	 ** this function creates the index page
-	 ** args: string 
-	 ** returns: string
+	/*
+	 * display_shortcode
 	 */
 	function display_shortcode( $atts ) {
 
-		extract(shortcode_atts(array(
+		extract( shortcode_atts( array(
 			'group_by' => 'books'
-		), $atts) );
+		), $atts ) );
 		
 		if ( $group_by == 'publishers' ) {
 
@@ -337,11 +316,9 @@ class Book_Custom_Post_Type {
 	}
 
 
-	/* Function: post_thumbnail
-	 ** args:  
-	 ** returns:
+	/*
+	 * post_thumbnail
 	 */
-
 	function post_thumbnail( $size ) {
 		global $_wp_additional_image_sizes;
 
@@ -374,7 +351,7 @@ class Book_Custom_Post_Type {
 					$height = get_option( $size. '_size_h' );
 				} 
 				$html = '<a href="' . get_permalink() . '">';                
-				$html .= '<img src="' . plugins_url( 'assets/images/nothumbnail.png', __FILE__ ) . '" _width="' . ceil( $width / 2 ) . 
+				$html .= '<img src="' . plugins_url( 'assets/images/placeholder.png', __FILE__ ) . '" _width="' . ceil( $width / 2 ) . 
 						 '" _height="' . ceil( $height / 2 ) . '" alt="' . get_the_title() . '" />';
 				$html .= '</a>';
 			}
@@ -384,10 +361,8 @@ class Book_Custom_Post_Type {
 	}
 
 
-	/* Function: disable_redirect_canonical
-	** this function
-	 ** args: string 
-	 ** returns: string
+	/*
+	 * disable_redirect_canonical
 	 */
 	function disable_redirect_canonical( $redirect_url ) {
 		//if ( is_singular( 'book' ) ) {
@@ -397,11 +372,9 @@ class Book_Custom_Post_Type {
 	}
 
 
-	/* Function: pre_get_posts
-	 ** args:  
-	 ** returns:
+	/*
+	 * pre_get_posts
 	 */
-
 	function pre_get_posts( $query ) {
 		if ( is_feed() ) {
 			$query->set( 'post_type', array( 'post', 'book' ) );
@@ -410,10 +383,8 @@ class Book_Custom_Post_Type {
 	}
 
 
-	/* Function: template_include
-	** this function
-	 ** args: string 
-	 ** returns: string
+	/* 
+	 * template_include
 	 */
 	function template_include( $template ) {
 		global $post;
@@ -472,10 +443,8 @@ class Book_Custom_Post_Type {
 	}
 
 
-	/* Function: get_template_part
-	** this function
-	 ** args: string 
-	 ** returns: string
+	/*
+	 * get_template_part
 	 */
 	function get_template_part( $slug, $name = null ) {
 		$templates = array();
@@ -490,10 +459,8 @@ class Book_Custom_Post_Type {
 	}
 
 
-	/* Function: locate_template
-	** this function
-	 ** args: string 
-	 ** returns: string
+	/* 
+	 * locate_template
 	 */
 	function locate_template( $template_names, $load = false, $require_once = true ) {
 		if ( !is_array( $template_names ) ) {
@@ -529,6 +496,5 @@ class Book_Custom_Post_Type {
 }
 
 add_action( 'plugins_loaded', array ( Book_Custom_Post_Type::get_instance(), 'plugin_setup' ) );
-
 
 ?>

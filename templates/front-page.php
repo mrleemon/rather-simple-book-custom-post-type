@@ -1,10 +1,10 @@
 <?php
-/*
-Template Name: Front Page Template
-*/
-?>
+/**
+ * Template Name: Front Page Template
+ *
+ */
 
-<?php get_header(); ?>
+get_header(); ?>
 
 	<div id="primary" class="content-area">
 		<div id="content" class="site-content" role="main">
