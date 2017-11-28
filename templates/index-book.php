@@ -1,3 +1,9 @@
+<?php
+/**
+ * The template for displaying the index of books.
+ *
+ */
+?>
 <div class="bookindex" id="bookindex-books">
 
 <?php

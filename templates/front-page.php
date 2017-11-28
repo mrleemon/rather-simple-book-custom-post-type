@@ -6,8 +6,8 @@
 
 get_header(); ?>
 
-	<div id="primary" class="content-area">
-		<div id="content" class="site-content" role="main">
+	<section id="primary" class="content-area">
+		<div id="main" class="site-main" role="main">
 
 		<?php 
 			
@@ -73,8 +73,8 @@ get_header(); ?>
 
 		<?php endif; ?>
 
-		</div><!-- #content -->
-	</div><!-- #primary -->
+		</div><!-- .site-main -->
+	</section><!-- .content-area -->
 
 <?php get_sidebar(); ?>
 <?php get_footer(); ?>

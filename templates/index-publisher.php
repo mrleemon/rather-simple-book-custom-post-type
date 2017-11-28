@@ -1,6 +1,6 @@
 <?php
 /**
- * The template for displaying the index of book authors.
+ * The template for displaying the index of book publishers.
  *
  */
 ?>
