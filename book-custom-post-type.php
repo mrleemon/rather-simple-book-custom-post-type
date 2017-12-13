@@ -127,6 +127,7 @@ class Book_Custom_Post_Type {
       
 		$args = array(
 			'show_ui' => true,
+			'show_in_rest' => true,
 			'public' => true,
 			'labels' => $labels,
 			'menu_position' => 5,
@@ -154,6 +155,7 @@ class Book_Custom_Post_Type {
 		  
 		$args = array(
 			'show_ui' => true,
+			'show_in_rest' => true,
 			'public' => true,
 			'labels' => $labels,
 			'hierarchical' => true,
@@ -178,6 +180,7 @@ class Book_Custom_Post_Type {
 		  
 		$args = array(
 			'show_ui' => true,
+			'show_in_rest' => true,
 			'public' => true,
 			'labels' => $labels,
 			'hierarchical' => true,
@@ -202,6 +205,7 @@ class Book_Custom_Post_Type {
 		  
 		$args = array(
 			'show_ui' => true,
+			'show_in_rest' => true,
 			'public' => true,
 			'labels' => $labels,
 			'hierarchical' => true,
