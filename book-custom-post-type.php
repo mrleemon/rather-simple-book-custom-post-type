@@ -289,19 +289,19 @@ class Book_Custom_Post_Type {
 	/*
 	 * display_shortcode
 	 */
-	function display_shortcode( $atts ) {
+	function display_shortcode( $attr ) {
 
-		extract( shortcode_atts( array(
+		$atts = shortcode_atts( array(
 			'group_by' => 'books'
-		), $atts ) );
+		), $attr, 'bookindex' );
 		
-		if ( $group_by == 'publishers' ) {
+		if ( $atts['group_by'] == 'publishers' ) {
 
 			ob_start();
 			$this->get_template_part( 'index-publisher' );
 			return ob_get_clean();
 
-		} elseif ( $group_by == 'authors' ) {
+		} elseif ( $atts['group_by'] == 'authors' ) {
 
 			ob_start();
 			$this->get_template_part( 'index-author' );
