@@ -3,7 +3,7 @@
 }
 
 .books .book {
-	position: relative;
+    position: relative;
     display: -moz-inline-box;
     display: inline-block;
     vertical-align: top;
