@@ -263,18 +263,8 @@ class Book_Custom_Post_Type {
         global $post;
         switch ( $column ) {
             case 'thumbnail':
-                $args = array(
-                    'post_parent' => $post->ID,
-                    'post_type' => 'attachment',
-                    'post_mime_type' => 'image'
-                );
-                $attachments = get_children( $args );
                 if ( has_post_thumbnail( $post->ID ) ) {
                     $thumb = get_the_post_thumbnail( $post->ID, array( 100, 100 ) );
-                } elseif ( $attachments ) {
-                    foreach ( $attachments as $attachment_id => $attachment ) {
-                        $thumb = wp_get_attachment_image( $attachment_id, array( 100, 100 ), true );
-                    }
                 }
                 if ( isset( $thumb ) && $thumb ) {
                     echo $thumb;
