@@ -327,38 +327,22 @@ class Book_Custom_Post_Type {
         global $_wp_additional_image_sizes;
 
         if ( has_post_thumbnail() ) {
-            $image_attributes = wp_get_attachment_image_src( get_post_thumbnail_id( get_the_ID() ), $size );
-            $html = '<a href="' . get_permalink() . '">';                
-            $html .= '<img src="' . $image_attributes[0] . '" _width="' . ceil( $image_attributes[1] / 2 ) . '" _height="' . ceil( $image_attributes[2] / 2 ) . '" alt="' . get_the_title() . '" />';
+            $html = '<a href="' . get_permalink() . '">';
+            $html .= wp_get_attachment_image( get_post_thumbnail_id( get_the_ID() ), $size );
             $html .= '</a>';
         } else {
-            $args = array(
-                'post_type' => 'attachment',
-                'numberposts' => null,    
-                'post_status' => null,
-                'post_parent' => get_the_ID()
-            );
-            $attachments = get_posts( $args );
-            if ( $attachments) {
-                  foreach ( $attachments as $attachment ) {
-                    $image_attributes = wp_get_attachment_image_src( $attachment->ID, $size );
-                    $html = '<a href="' . get_permalink() . '">';                
-                    $html = '<img src="' . $image_attributes[0] . '" _width="' . ceil( $image_attributes[1] / 2 ) . '" alt="" />';
-                    $html .= '</a>';
-                }
-            } else {
-                if ( isset( $_wp_additional_image_sizes ) && count( $_wp_additional_image_sizes ) && in_array( $size, array_keys( $_wp_additional_image_sizes ) ) ) {
+            if ( isset( $_wp_additional_image_sizes ) &&
+                 count( $_wp_additional_image_sizes ) &&
+                 in_array( $size, array_keys( $_wp_additional_image_sizes ) ) ) {
                     $width = $_wp_additional_image_sizes[$size]['width'];
                     $height = $_wp_additional_image_sizes[$size]['height'];
-                } else {
-                    $width = get_option( $size. '_size_w' );
-                    $height = get_option( $size. '_size_h' );
-                } 
-                $html = '<a href="' . get_permalink() . '">';                
-                $html .= '<img src="' . plugins_url( 'assets/images/placeholder.png', __FILE__ ) . '" _width="' . ceil( $width / 2 ) . 
-                         '" _height="' . ceil( $height / 2 ) . '" alt="' . get_the_title() . '" />';
-                $html .= '</a>';
-            }
+            } else {
+                $width = get_option( $size. '_size_w' );
+                $height = get_option( $size. '_size_h' );
+            } 
+            $html = '<a href="' . get_permalink() . '">';                
+            $html .= '<img src="' . plugins_url( 'assets/images/placeholder.png', __FILE__ ) . '" width="' . $width . '" height="' . $height . '" alt="' . get_the_title() . '" />';
+            $html .= '</a>';
         }    
         echo $html;
 
