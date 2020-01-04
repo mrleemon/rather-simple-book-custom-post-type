@@ -1,4 +1,4 @@
-=== Book Custom Post Type ===
+=== Rather Simple Book Custom Post Type ===
 Contributors: leemon
 Tags: book, post type
 Requires at least: 4.0
@@ -28,7 +28,7 @@ Yes, you can use the following:
 
 == Copyright ==
 
-Book Custom Post Type is distributed under the terms of the GNU GPL
+Rather Simple Book Custom Post Type is distributed under the terms of the GNU GPL
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by

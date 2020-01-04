@@ -16,7 +16,7 @@
 
     if ( $terms ) {
          
-        //usort( $terms, 'bcpt_sort_authors' );
+        //usort( $terms, 'rsbcpt_sort_authors' );
             
         foreach( $terms as $term ) {
             $this_char = strtoupper( mb_substr( $term->name, 0, 1, 'UTF-8' ) );

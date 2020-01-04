@@ -1,12 +1,12 @@
 <?php
 /*
-  Plugin Name: Book Custom Post Type
-  Plugin URI: http://wordpress.org/plugins/book-custom-post-type/
+  Plugin Name: Rather Simple Book Custom Post Type
+  Plugin URI: 
   Description: A book custom post type
   Version: 1.0
   Author: Oscar Ciutat
   Author URI: http://oscarciutat.com/code
-  Text Domain: book-custom-post-type
+  Text Domain: rather-simple-book-custom-post-type
   License: GPLv2 or later
 
   This program is free software; you can redistribute it and/or modify
@@ -23,7 +23,7 @@
   Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
 
-class Book_Custom_Post_Type {
+class Rather_Simple_Book_Custom_Post_Type {
 
     /**
      * Plugin instance.
@@ -103,7 +103,7 @@ class Book_Custom_Post_Type {
      *
      */
     function load_language() {
-        load_plugin_textdomain( 'book-custom-post-type', '', dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
+        load_plugin_textdomain( 'rather-simple-book-custom-post-type', '', dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
     }
 
     
@@ -113,16 +113,16 @@ class Book_Custom_Post_Type {
     function register_custom_type() {
 
         $labels = array(
-            'name' => __( 'Books', 'book-custom-post-type' ),
-            'singular_name' => __( 'Book', 'book-custom-post-type' ),
-            'add_new' => __( 'Add New Book', 'book-custom-post-type' ),
-            'add_new_item' => __( 'Add New Book', 'book-custom-post-type' ),
-            'edit_item' => __( 'Edit Book', 'book-custom-post-type' ),
-            'new_item' => __( 'New Book', 'book-custom-post-type' ),
-            'view_item' => __( 'View Book', 'book-custom-post-type' ),
-            'search_items' => __( 'Search Books', 'book-custom-post-type' ),
-            'not_found' => __( 'No Books found', 'book-custom-post-type' ),
-            'not_found_in_trash' => __( 'No Books found in Trash', 'book-custom-post-type' )
+            'name' => __( 'Books', 'rather-simple-book-custom-post-type' ),
+            'singular_name' => __( 'Book', 'rather-simple-book-custom-post-type' ),
+            'add_new' => __( 'Add New Book', 'rather-simple-book-custom-post-type' ),
+            'add_new_item' => __( 'Add New Book', 'rather-simple-book-custom-post-type' ),
+            'edit_item' => __( 'Edit Book', 'rather-simple-book-custom-post-type' ),
+            'new_item' => __( 'New Book', 'rather-simple-book-custom-post-type' ),
+            'view_item' => __( 'View Book', 'rather-simple-book-custom-post-type' ),
+            'search_items' => __( 'Search Books', 'rather-simple-book-custom-post-type' ),
+            'not_found' => __( 'No Books found', 'rather-simple-book-custom-post-type' ),
+            'not_found_in_trash' => __( 'No Books found in Trash', 'rather-simple-book-custom-post-type' )
         );
       
         $args = array(
@@ -143,14 +143,14 @@ class Book_Custom_Post_Type {
         // Types
 
         $labels = array(
-            'name' => __( 'Types', 'book-custom-post-type' ),
-            'singular_name' => __( 'Type', 'book-custom-post-type' ),
-            'add_new_item' => __( 'Add New Type', 'book-custom-post-type' ),
-            'edit_item' => __( 'Edit Type', 'book-custom-post-type' ),
-            'new_item_name' => __( 'New Type', 'book-custom-post-type' ),
-            'search_items' => __( 'Search Types', 'book-custom-post-type' ),
-            'all_items' => __( 'All Types', 'book-custom-post-type' ),
-            'popular_items' => __( 'Popular Types', 'book-custom-post-type' )
+            'name' => __( 'Types', 'rather-simple-book-custom-post-type' ),
+            'singular_name' => __( 'Type', 'rather-simple-book-custom-post-type' ),
+            'add_new_item' => __( 'Add New Type', 'rather-simple-book-custom-post-type' ),
+            'edit_item' => __( 'Edit Type', 'rather-simple-book-custom-post-type' ),
+            'new_item_name' => __( 'New Type', 'rather-simple-book-custom-post-type' ),
+            'search_items' => __( 'Search Types', 'rather-simple-book-custom-post-type' ),
+            'all_items' => __( 'All Types', 'rather-simple-book-custom-post-type' ),
+            'popular_items' => __( 'Popular Types', 'rather-simple-book-custom-post-type' )
         );
           
         $args = array(
@@ -168,14 +168,14 @@ class Book_Custom_Post_Type {
         // Authors
 
         $labels = array(
-            'name' => __( 'Authors', 'book-custom-post-type' ),
-            'singular_name' => __( 'Author', 'book-custom-post-type' ),
-            'add_new_item' => __( 'Add New Author', 'book-custom-post-type' ),
-            'edit_item' => __( 'Edit Author', 'book-custom-post-type' ),
-            'new_item_name' => __( 'New Author', 'book-custom-post-type' ),
-            'search_items' => __( 'Search Authors', 'book-custom-post-type' ),
-            'all_items' => __( 'All Authors', 'book-custom-post-type' ),
-            'popular_items' => __( 'Popular Authors', 'book-custom-post-type' )
+            'name' => __( 'Authors', 'rather-simple-book-custom-post-type' ),
+            'singular_name' => __( 'Author', 'rather-simple-book-custom-post-type' ),
+            'add_new_item' => __( 'Add New Author', 'rather-simple-book-custom-post-type' ),
+            'edit_item' => __( 'Edit Author', 'rather-simple-book-custom-post-type' ),
+            'new_item_name' => __( 'New Author', 'rather-simple-book-custom-post-type' ),
+            'search_items' => __( 'Search Authors', 'rather-simple-book-custom-post-type' ),
+            'all_items' => __( 'All Authors', 'rather-simple-book-custom-post-type' ),
+            'popular_items' => __( 'Popular Authors', 'rather-simple-book-custom-post-type' )
         );
           
         $args = array(
@@ -193,14 +193,14 @@ class Book_Custom_Post_Type {
         // Publishers
 
         $labels = array(
-            'name' => __( 'Publishers', 'book-custom-post-type' ),
-            'singular_name' => __( 'Publisher', 'book-custom-post-type' ),
-            'add_new_item' => __( 'Add New Publisher', 'book-custom-post-type' ),
-            'edit_item' => __( 'Edit Publisher', 'book-custom-post-type' ),
-            'new_item_name' => __( 'New Publisher', 'book-custom-post-type' ),
-            'search_items' => __( 'Search Publishers', 'book-custom-post-type' ),
-            'all_items' => __( 'All Publishers', 'book-custom-post-type' ),
-            'popular_items' => __( 'Popular Publishers', 'book-custom-post-type' )
+            'name' => __( 'Publishers', 'rather-simple-book-custom-post-type' ),
+            'singular_name' => __( 'Publisher', 'rather-simple-book-custom-post-type' ),
+            'add_new_item' => __( 'Add New Publisher', 'rather-simple-book-custom-post-type' ),
+            'edit_item' => __( 'Edit Publisher', 'rather-simple-book-custom-post-type' ),
+            'new_item_name' => __( 'New Publisher', 'rather-simple-book-custom-post-type' ),
+            'search_items' => __( 'Search Publishers', 'rather-simple-book-custom-post-type' ),
+            'all_items' => __( 'All Publishers', 'rather-simple-book-custom-post-type' ),
+            'popular_items' => __( 'Popular Publishers', 'rather-simple-book-custom-post-type' )
         );
           
         $args = array(
@@ -233,7 +233,7 @@ class Book_Custom_Post_Type {
         $content .= get_post_type_archive_feed_link( 'book' );
         $content .= '" title="';
         $content .= esc_attr( get_bloginfo( 'name' ) );
-        $content .= ' &raquo; ' . __( 'Books Feed', 'book-custom-post-type' );
+        $content .= ' &raquo; ' . __( 'Books Feed', 'rather-simple-book-custom-post-type' );
         $content .= '" />';
         $content .= "\n";
         echo $content;
@@ -248,7 +248,7 @@ class Book_Custom_Post_Type {
         foreach( $columns as $key => $value ) {
             if ( $key == 'title' ) {
                 // Put the columns before the Title column
-                $new['thumbnail'] = __( 'Cover', 'book-custom-post-type' );
+                $new['thumbnail'] = __( 'Cover', 'rather-simple-book-custom-post-type' );
             }
             $new[$key] = $value;
         }
@@ -269,7 +269,7 @@ class Book_Custom_Post_Type {
                 if ( isset( $thumb ) && $thumb ) {
                     echo $thumb;
                 } else {
-                    echo __( 'None', 'book-custom-post-type' );
+                    echo __( 'None', 'rather-simple-book-custom-post-type' );
                 }
                 break;    
         }
@@ -473,6 +473,4 @@ class Book_Custom_Post_Type {
 
 }
 
-add_action( 'plugins_loaded', array ( Book_Custom_Post_Type::get_instance(), 'plugin_setup' ) );
-
-?>
+add_action( 'plugins_loaded', array ( Rather_Simple_Book_Custom_Post_Type::get_instance(), 'plugin_setup' ) );

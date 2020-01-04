@@ -22,7 +22,7 @@
 
     if ( $posts ) {
          
-        usort( $posts, 'bcpt_sort_books' );
+        usort( $posts, 'rsbcpt_sort_books' );
             
         foreach( $posts as $post ) {    
              
