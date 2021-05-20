@@ -2,6 +2,7 @@
 /*
   Plugin Name: Rather Simple Book Custom Post Type
   Plugin URI: 
+  Update URI: false
   Description: A book custom post type
   Version: 1.0
   Author: Oscar Ciutat
