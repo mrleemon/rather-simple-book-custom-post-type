@@ -34,7 +34,6 @@ class Rather_Simple_Book_Custom_Post_Type {
      */
     protected static $instance = null;
 
-
     /**
      * Access this plugin’s working instance
      *
@@ -51,7 +50,6 @@ class Rather_Simple_Book_Custom_Post_Type {
 
     }
 
-    
     /**
      * Used for regular plugin work.
      *
@@ -76,7 +74,6 @@ class Rather_Simple_Book_Custom_Post_Type {
     
     }
 
-    
     /**
      * Constructor. Intentionally left empty and public.
      *
@@ -84,9 +81,8 @@ class Rather_Simple_Book_Custom_Post_Type {
      *
      */
     public function __construct() {}
-
     
-     /**
+    /**
      * Includes required core files used in admin and on the frontend.
      *
      * @since 1.0
@@ -95,7 +91,6 @@ class Rather_Simple_Book_Custom_Post_Type {
     protected function includes() {
         require_once 'includes/functions.php';
     }
-
 
     /**
      * Loads language
@@ -106,11 +101,10 @@ class Rather_Simple_Book_Custom_Post_Type {
     function load_language() {
         load_plugin_textdomain( 'rather-simple-book-custom-post-type', '', dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
     }
-
     
-    /*
-    * register_custom_type  
-    */
+    /**
+     * register_custom_type  
+     */
     function register_custom_type() {
 
         $labels = array(
@@ -140,9 +134,7 @@ class Rather_Simple_Book_Custom_Post_Type {
 
         register_post_type( 'book', $args );
 
-
         // Types
-
         $labels = array(
             'name' => __( 'Types', 'rather-simple-book-custom-post-type' ),
             'singular_name' => __( 'Type', 'rather-simple-book-custom-post-type' ),
@@ -165,9 +157,7 @@ class Rather_Simple_Book_Custom_Post_Type {
 
         register_taxonomy( 'book_type', 'book', $args );
 
-
         // Authors
-
         $labels = array(
             'name' => __( 'Authors', 'rather-simple-book-custom-post-type' ),
             'singular_name' => __( 'Author', 'rather-simple-book-custom-post-type' ),
@@ -190,9 +180,7 @@ class Rather_Simple_Book_Custom_Post_Type {
 
         register_taxonomy( 'book_author', 'book', $args );
 
-
         // Publishers
-
         $labels = array(
             'name' => __( 'Publishers', 'rather-simple-book-custom-post-type' ),
             'singular_name' => __( 'Publisher', 'rather-simple-book-custom-post-type' ),
@@ -217,16 +205,14 @@ class Rather_Simple_Book_Custom_Post_Type {
 
     } 
 
-
-    /*
+    /**
      * enqueue_scripts 
      */
     function enqueue_scripts() {
         wp_enqueue_style( 'bcpt-style', plugins_url( '/style.css', __FILE__ ) );
     }
 
-
-    /* 
+    /**
      * head
      */
     function head() {
@@ -240,8 +226,7 @@ class Rather_Simple_Book_Custom_Post_Type {
         echo $content;
     }
 
-
-    /*
+    /**
      * book_posts_columns
      */
     function book_posts_columns( $columns ) {
@@ -256,8 +241,7 @@ class Rather_Simple_Book_Custom_Post_Type {
         return $new;
     }
 
-
-    /*
+    /**
      * book_posts_custom_column
      */
     function book_posts_custom_column( $column ) {
@@ -276,8 +260,7 @@ class Rather_Simple_Book_Custom_Post_Type {
         }
     }
 
-
-    /*
+    /**
      * display_shortcode
      */
     function display_shortcode( $attr ) {
@@ -310,8 +293,7 @@ class Rather_Simple_Book_Custom_Post_Type {
         return $html;
     }
 
-
-    /*
+    /**
      * post_thumbnail
      */
     function post_thumbnail( $size ) {
@@ -339,8 +321,7 @@ class Rather_Simple_Book_Custom_Post_Type {
 
     }
 
-
-    /*
+    /**
      * disable_redirect_canonical
      */
     function disable_redirect_canonical( $redirect_url ) {
@@ -350,8 +331,7 @@ class Rather_Simple_Book_Custom_Post_Type {
         return $redirect_url;
     }
 
-
-    /*
+    /**
      * pre_get_posts
      */
     function pre_get_posts( $query ) {
@@ -361,8 +341,7 @@ class Rather_Simple_Book_Custom_Post_Type {
         return $query;
     }
 
-
-    /* 
+    /**
      * template_include
      */
     function template_include( $template ) {
@@ -421,8 +400,7 @@ class Rather_Simple_Book_Custom_Post_Type {
         return $template;
     }
 
-
-    /*
+    /**
      * get_template_part
      */
     function get_template_part( $slug, $name = null ) {
@@ -437,8 +415,7 @@ class Rather_Simple_Book_Custom_Post_Type {
         $this->locate_template( $templates, true, false );
     }
 
-
-    /* 
+    /**
      * locate_template
      */
     function locate_template( $template_names, $load = false, $require_once = true ) {
