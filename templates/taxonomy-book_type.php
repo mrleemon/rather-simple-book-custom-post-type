@@ -2,71 +2,74 @@
 /**
  * The template for displaying book type taxonomy pages.
  *
+ * @package rather_simple_book_custom_post_type
  */
 
 get_header(); ?>
 
-    <section id="primary" class="content-area">
-        <div id="main" class="site-main" role="main">
+	<section id="primary" class="content-area">
+		<div id="main" class="site-main" role="main">
 
-        <?php if ( have_posts() ) : ?>
+		<?php if ( have_posts() ) : ?>
 
-            <header class="page-header">
-                <h1 class="page-title">
-                </h1>
-            </header><!-- .page-header -->
+			<header class="page-header">
+				<h1 class="page-title">
+				</h1>
+			</header><!-- .page-header -->
 
-            <div class="books">
+			<div class="books">
 
-                <?php /* Start the Loop */ ?>
-                <?php while ( have_posts() ) : the_post(); ?>
+				<?php /* Start the Loop */ ?>
+				<?php
+				while ( have_posts() ) :
+					the_post();
+					?>
 
-                    <?php
-                        $authors = wp_get_object_terms( $post->ID, 'book_author', array( 'fields' => 'names' ) );
-                        if (!empty( $authors ) ) { 
-                            $authors = implode( ', ', $authors ) . apply_filters( 'separator', ': ');
-                        }
-                    ?>
+					<?php
+						$authors = wp_get_object_terms( $post->ID, 'book_author', array( 'fields' => 'names' ) );
+					if ( ! empty( $authors ) ) {
+						$authors = implode( ', ', $authors ) . apply_filters( 'separator', ': ' );
+					}
+					?>
 
-                    <div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+					<div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
-                    <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>" >
-                    <?php 
-                        //bcpt_post_thumbnail( 'thumbnail' );
-                        do_action( 'post_thumbnail', 'thumbnail' );
-                    ?>
-                    </a>
-                    <p>
-                    <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>" ><?php the_title( $authors ); ?></a>
-                    </p>
-        
-                    </div><!-- #post -->
+					<a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>" >
+					<?php
+						do_action( 'post_thumbnail', 'thumbnail' );
+					?>
+					</a>
+					<p>
+					<a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>" ><?php the_title( $authors ); ?></a>
+					</p>
 
-                <?php endwhile; ?>
-                
-            </div><!-- .books -->
+					</div><!-- #post -->
 
-            <?php the_posts_pagination(); ?>
+				<?php endwhile; ?>
 
-        <?php else : ?>
+			</div><!-- .books -->
 
-            <article id="post-0" class="post no-results not-found">
-                <header class="entry-header">
-                    <h1 class="entry-title"><?php _e( 'Nothing Found', 'theme' ); ?></h1>
-                </header><!-- .entry-header -->
+			<?php the_posts_pagination(); ?>
 
-                <div class="entry-content">
+		<?php else : ?>
 
-                    <p><?php _e( 'It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help.', 'theme' ); ?></p>
-                    <?php get_search_form(); ?>
+			<article id="post-0" class="post no-results not-found">
+				<header class="entry-header">
+					<h1 class="entry-title"><?php _e( 'Nothing Found', 'theme' ); ?></h1>
+				</header><!-- .entry-header -->
 
-                </div><!-- .entry-content -->
-            </article><!-- #post-0 .post .no-results .not-found -->
+				<div class="entry-content">
 
-        <?php endif; ?>
+					<p><?php _e( 'It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help.', 'theme' ); ?></p>
+					<?php get_search_form(); ?>
 
-        </div><!-- .site-main -->
-    </section><!-- .content-area -->
+				</div><!-- .entry-content -->
+			</article><!-- #post-0 .post .no-results .not-found -->
+
+		<?php endif; ?>
+
+		</div><!-- .site-main -->
+	</section><!-- .content-area -->
 
 <?php get_sidebar(); ?>
 <?php get_footer(); ?>
