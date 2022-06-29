@@ -24,7 +24,7 @@ if ( $terms ) {
 			$this_char = '0-9';
 		}
 		if ( $this_char !== $last_char ) {
-			if ( $last_char != '' ) {
+			if ( '' !== $last_char ) {
 				$html .= '</ul>';
 				$html .= '</div>';
 			}

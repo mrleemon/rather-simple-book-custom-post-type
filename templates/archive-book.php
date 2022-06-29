@@ -36,7 +36,6 @@ get_header(); ?>
 
 					<a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>" >
 					<?php
-						// bcpt_post_thumbnail( 'thumbnail' );
 						do_action( 'post_thumbnail', 'thumbnail' );
 					?>
 					</a>
