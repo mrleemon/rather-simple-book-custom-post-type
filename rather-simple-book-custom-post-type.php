@@ -2,11 +2,13 @@
 /**
  * Plugin Name: Rather Simple Book Custom Post Type
  * Update URI: false
- * Description: A book custom post type
  * Version: 1.0
+ * Requires at least: 5.3
+ * Requires PHP: 7.0
  * Author: Oscar Ciutat
  * Author URI: http://oscarciutat.com/code
  * Text Domain: rather-simple-book-custom-post-type
+ * Description: A book custom post type
  * License: GPLv2 or later
  *
  * This program is free software; you can redistribute it and/or modify
