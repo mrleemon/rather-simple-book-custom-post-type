@@ -26,7 +26,6 @@
  *
  * @package rather_simple_book_custom_post_type
  */
-
 class Rather_Simple_Book_Custom_Post_Type {
 
 	/**
@@ -46,7 +45,6 @@ class Rather_Simple_Book_Custom_Post_Type {
 		}
 
 		return self::$instance;
-
 	}
 
 	/**
@@ -67,7 +65,6 @@ class Rather_Simple_Book_Custom_Post_Type {
 		add_filter( 'pre_get_posts', array( $this, 'pre_get_posts' ) );
 		add_filter( 'redirect_canonical', array( $this, 'disable_redirect_canonical' ) );
 		add_shortcode( 'bookindex', array( $this, 'display_shortcode' ) );
-
 	}
 
 	/**
@@ -189,7 +186,6 @@ class Rather_Simple_Book_Custom_Post_Type {
 		);
 
 		register_taxonomy( 'book_publisher', 'book', $args );
-
 	}
 
 	/**
@@ -225,7 +221,7 @@ class Rather_Simple_Book_Custom_Post_Type {
 	public function book_posts_columns( $columns ) {
 		$new = array();
 		foreach ( $columns as $key => $value ) {
-			if ( $key === 'title' ) {
+			if ( 'title' === $key ) {
 				// Put the columns before the Title column.
 				$new['thumbnail'] = __( 'Cover', 'rather-simple-book-custom-post-type' );
 			}
@@ -266,13 +262,13 @@ class Rather_Simple_Book_Custom_Post_Type {
 			'bookindex'
 		);
 
-		if ( $atts['group_by'] === 'publishers' ) {
+		if ( 'publishers' === $atts['group_by'] ) {
 
 			ob_start();
 			$this->get_template_part( 'index-publisher' );
 			return ob_get_clean();
 
-		} elseif ( $atts['group_by'] === 'authors' ) {
+		} elseif ( 'authors' === $atts['group_by'] ) {
 
 			ob_start();
 			$this->get_template_part( 'index-author' );
@@ -315,7 +311,6 @@ class Rather_Simple_Book_Custom_Post_Type {
 			$html .= '</a>';
 		}
 		echo $html;
-
 	}
 
 	/**
@@ -428,11 +423,11 @@ class Rather_Simple_Book_Custom_Post_Type {
 			if ( ! $template_name ) {
 				continue;
 			}
-			if ( file_exists( STYLESHEETPATH . '/' . $template_name ) ) {
-				$located = STYLESHEETPATH . '/' . $template_name;
+			if ( file_exists( get_stylesheet_directory() . '/' . $template_name ) ) {
+				$located = get_stylesheet_directory() . '/' . $template_name;
 				break;
-			} elseif ( file_exists( TEMPLATEPATH . '/' . $template_name ) ) {
-				$located = TEMPLATEPATH . '/' . $template_name;
+			} elseif ( file_exists( get_template_directory() . '/' . $template_name ) ) {
+				$located = get_template_directory() . '/' . $template_name;
 				break;
 			} elseif ( file_exists( $ep_plugin_templates_dir . '/' . $template_name ) ) {
 				$located = $ep_plugin_templates_dir . '/' . $template_name;
@@ -446,7 +441,6 @@ class Rather_Simple_Book_Custom_Post_Type {
 
 		return $located;
 	}
-
 }
 
 add_action( 'plugins_loaded', array( Rather_Simple_Book_Custom_Post_Type::get_instance(), 'plugin_setup' ) );
